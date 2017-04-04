@@ -70,7 +70,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
-        <li><a href="teams.php">Teams</a></li>
+        <li class="active"><a href="teams.php">Teams</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
           <ul class="dropdown-menu">
