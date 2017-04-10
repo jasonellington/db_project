@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.9
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Apr 10, 2017 at 01:53 PM
+- Server version: 5.5.54-0ubuntu0.14.04.1
+- PHP Version: 5.5.9-1ubuntu4.21
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="cs4750s17jte4hm" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="teams">
+                CREATE TABLE `teams` (
+                  `school` varchar(20) NOT NULL DEFAULT '',
+                  `mascot` varchar(20) DEFAULT NULL,
+                  `wins` int(11) DEFAULT NULL,
+                  `losses` int(11) DEFAULT NULL,
+                  `rank` int(11) DEFAULT NULL,
+                  PRIMARY KEY (`school`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'cs4750s17jte4hm'
+    -->
+    <database name="cs4750s17jte4hm">
+        <!-- Table teams -->
+        <table name="teams">
+            <column name="school">Arizona</column>
+            <column name="mascot">Wildcats</column>
+            <column name="wins">30</column>
+            <column name="losses">4</column>
+            <column name="rank">4</column>
+        </table>
+        <table name="teams">
+            <column name="school">Baylor</column>
+            <column name="mascot">Bears</column>
+            <column name="wins">25</column>
+            <column name="losses">7</column>
+            <column name="rank">12</column>
+        </table>
+        <table name="teams">
+            <column name="school">Butler</column>
+            <column name="mascot">Bulldogs</column>
+            <column name="wins">23</column>
+            <column name="losses">8</column>
+            <column name="rank">21</column>
+        </table>
+        <table name="teams">
+            <column name="school">Cincinnati</column>
+            <column name="mascot">Bearcats</column>
+            <column name="wins">29</column>
+            <column name="losses">5</column>
+            <column name="rank">18</column>
+        </table>
+        <table name="teams">
+            <column name="school">Duke</column>
+            <column name="mascot">Blue Devils</column>
+            <column name="wins">27</column>
+            <column name="losses">8</column>
+            <column name="rank">7</column>
+        </table>
+        <table name="teams">
+            <column name="school">Florida</column>
+            <column name="mascot">Gators</column>
+            <column name="wins">24</column>
+            <column name="losses">8</column>
+            <column name="rank">20</column>
+        </table>
+        <table name="teams">
+            <column name="school">Florida State</column>
+            <column name="mascot">Seminoles</column>
+            <column name="wins">25</column>
+            <column name="losses">8</column>
+            <column name="rank">16</column>
+        </table>
+        <table name="teams">
+            <column name="school">Gonzaga</column>
+            <column name="mascot">Bulldogs</column>
+            <column name="wins">32</column>
+            <column name="losses">1</column>
+            <column name="rank">2</column>
+        </table>
+        <table name="teams">
+            <column name="school">Iowa State</column>
+            <column name="mascot">Cyclones</column>
+            <column name="wins">23</column>
+            <column name="losses">10</column>
+            <column name="rank">17</column>
+        </table>
+        <table name="teams">
+            <column name="school">Kansas</column>
+            <column name="mascot">Jayhawks</column>
+            <column name="wins">28</column>
+            <column name="losses">4</column>
+            <column name="rank">3</column>
+        </table>
+        <table name="teams">
+            <column name="school">Kentucky</column>
+            <column name="mascot">Wildcats</column>
+            <column name="wins">29</column>
+            <column name="losses">5</column>
+            <column name="rank">5</column>
+        </table>
+        <table name="teams">
+            <column name="school">Louisville</column>
+            <column name="mascot">Cardinals</column>
+            <column name="wins">24</column>
+            <column name="losses">8</column>
+            <column name="rank">10</column>
+        </table>
+        <table name="teams">
+            <column name="school">Michigan</column>
+            <column name="mascot">Wolverines</column>
+            <column name="wins">24</column>
+            <column name="losses">11</column>
+            <column name="rank">23</column>
+        </table>
+        <table name="teams">
+            <column name="school">North Carolina</column>
+            <column name="mascot">Tar Heels</column>
+            <column name="wins">27</column>
+            <column name="losses">7</column>
+            <column name="rank">6</column>
+        </table>
+        <table name="teams">
+            <column name="school">Notre Dame</column>
+            <column name="mascot">Fighting Irish</column>
+            <column name="wins">25</column>
+            <column name="losses">9</column>
+            <column name="rank">14</column>
+        </table>
+        <table name="teams">
+            <column name="school">Oregon</column>
+            <column name="mascot">Ducks</column>
+            <column name="wins">29</column>
+            <column name="losses">5</column>
+            <column name="rank">9</column>
+        </table>
+        <table name="teams">
+            <column name="school">Purdue</column>
+            <column name="mascot">Boilermakers</column>
+            <column name="wins">25</column>
+            <column name="losses">7</column>
+            <column name="rank">15</column>
+        </table>
+        <table name="teams">
+            <column name="school">Saint Mary's</column>
+            <column name="mascot">Gaels</column>
+            <column name="wins">28</column>
+            <column name="losses">4</column>
+            <column name="rank">22</column>
+        </table>
+        <table name="teams">
+            <column name="school">SMU</column>
+            <column name="mascot">Mustangs</column>
+            <column name="wins">30</column>
+            <column name="losses">4</column>
+            <column name="rank">11</column>
+        </table>
+        <table name="teams">
+            <column name="school">UCLA</column>
+            <column name="mascot">Bruins</column>
+            <column name="wins">29</column>
+            <column name="losses">4</column>
+            <column name="rank">8</column>
+        </table>
+        <table name="teams">
+            <column name="school">Villanova</column>
+            <column name="mascot">Wildcats</column>
+            <column name="wins">31</column>
+            <column name="losses">3</column>
+            <column name="rank">1</column>
+        </table>
+        <table name="teams">
+            <column name="school">Virginia</column>
+            <column name="mascot">Cavaliers</column>
+            <column name="wins">22</column>
+            <column name="losses">10</column>
+            <column name="rank">24</column>
+        </table>
+        <table name="teams">
+            <column name="school">West Virginia</column>
+            <column name="mascot">Mountaineers</column>
+            <column name="wins">26</column>
+            <column name="losses">8</column>
+            <column name="rank">13</column>
+        </table>
+        <table name="teams">
+            <column name="school">Wichita State</column>
+            <column name="mascot">Shockers</column>
+            <column name="wins">30</column>
+            <column name="losses">4</column>
+            <column name="rank">19</column>
+        </table>
+        <table name="teams">
+            <column name="school">Wisconsin</column>
+            <column name="mascot">Badgers</column>
+            <column name="wins">25</column>
+            <column name="losses">9</column>
+            <column name="rank">25</column>
+        </table>
+    </database>
+</pma_xml_export>

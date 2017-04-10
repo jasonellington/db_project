@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.9
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Apr 10, 2017 at 01:53 PM
+- Server version: 5.5.54-0ubuntu0.14.04.1
+- PHP Version: 5.5.9-1ubuntu4.21
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="cs4750s17jte4hm" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="gyms">
+                CREATE TABLE `gyms` (
+                  `gym_name` varchar(30) NOT NULL DEFAULT '',
+                  `capacity` int(11) DEFAULT NULL,
+                  PRIMARY KEY (`gym_name`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'cs4750s17jte4hm'
+    -->
+    <database name="cs4750s17jte4hm">
+        <!-- Table gyms -->
+        <table name="gyms">
+            <column name="gym_name">Allen Fieldhouse</column>
+            <column name="capacity">16300</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Cameron Indoor Stadium</column>
+            <column name="capacity">9314</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Charles Koch Arena</column>
+            <column name="capacity">10506</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Crisler Center</column>
+            <column name="capacity">12707</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Dean Smith Center</column>
+            <column name="capacity">21750</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Donald L. Tucker Civic Center</column>
+            <column name="capacity">13800</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Edmund P. Joyce Center</column>
+            <column name="capacity">9149</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Ferrell Center</column>
+            <column name="capacity">10284</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Fifth Third Arena</column>
+            <column name="capacity">13187</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Hilton Coliseum</column>
+            <column name="capacity">14384</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Hinkle Fieldhouse</column>
+            <column name="capacity">9100</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">John Paul Jones Arena</column>
+            <column name="capacity">14593</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">KFC Yum! Center</column>
+            <column name="capacity">22090</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Kohl Center</column>
+            <column name="capacity">17230</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Mackey Arena</column>
+            <column name="capacity">14804</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Matthew Knight Arena</column>
+            <column name="capacity">12364</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">McCarthey Athletic Center</column>
+            <column name="capacity">6000</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">McKale Center</column>
+            <column name="capacity">14644</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">McKeon Pavilion</column>
+            <column name="capacity">3500</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Moody Coliseum</column>
+            <column name="capacity">7000</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">O'Connell Center</column>
+            <column name="capacity">10133</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Pauley Pavilion</column>
+            <column name="capacity">13800</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">Rupp Arena</column>
+            <column name="capacity">23500</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">The Pavilion</column>
+            <column name="capacity">6500</column>
+        </table>
+        <table name="gyms">
+            <column name="gym_name">WVU Coliseum</column>
+            <column name="capacity">14000</column>
+        </table>
+    </database>
+</pma_xml_export>

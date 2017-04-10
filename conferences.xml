@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.9
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Apr 10, 2017 at 01:53 PM
+- Server version: 5.5.54-0ubuntu0.14.04.1
+- PHP Version: 5.5.9-1ubuntu4.21
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="cs4750s17jte4hm" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="conferences">
+                CREATE TABLE `conferences` (
+                  `conference_title` varchar(20) NOT NULL DEFAULT '',
+                  `num_teams` int(11) DEFAULT '0',
+                  `power_five` int(11) DEFAULT '0',
+                  PRIMARY KEY (`conference_title`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'cs4750s17jte4hm'
+    -->
+    <database name="cs4750s17jte4hm">
+        <!-- Table conferences -->
+        <table name="conferences">
+            <column name="conference_title">AAC</column>
+            <column name="num_teams">2</column>
+            <column name="power_five">0</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">ACC</column>
+            <column name="num_teams">6</column>
+            <column name="power_five">1</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">Big 12</column>
+            <column name="num_teams">4</column>
+            <column name="power_five">1</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">Big East</column>
+            <column name="num_teams">2</column>
+            <column name="power_five">0</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">Big Ten</column>
+            <column name="num_teams">3</column>
+            <column name="power_five">1</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">Missouri Valley</column>
+            <column name="num_teams">1</column>
+            <column name="power_five">0</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">Pac-12</column>
+            <column name="num_teams">3</column>
+            <column name="power_five">1</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">SEC</column>
+            <column name="num_teams">2</column>
+            <column name="power_five">1</column>
+        </table>
+        <table name="conferences">
+            <column name="conference_title">West Coast</column>
+            <column name="num_teams">2</column>
+            <column name="power_five">0</column>
+        </table>
+    </database>
+</pma_xml_export>
