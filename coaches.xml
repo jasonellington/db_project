@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.9
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Apr 09, 2017 at 08:34 PM
+- Server version: 5.5.54-0ubuntu0.14.04.1
+- PHP Version: 5.5.9-1ubuntu4.21
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="cs4750s17jte4hm" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="coaches">
+                CREATE TABLE `coaches` (
+                  `c_first_name` varchar(20) NOT NULL DEFAULT '',
+                  `c_last_name` varchar(20) NOT NULL DEFAULT '',
+                  `overall_wins` int(11) NOT NULL DEFAULT '0',
+                  `overall_losses` int(11) NOT NULL DEFAULT '0',
+                  PRIMARY KEY (`c_first_name`,`c_last_name`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'cs4750s17jte4hm'
+    -->
+    <database name="cs4750s17jte4hm">
+        <!-- Table coaches -->
+        <table name="coaches">
+            <column name="c_first_name">Bill</column>
+            <column name="c_last_name">Self</column>
+            <column name="overall_wins">620</column>
+            <column name="overall_losses">192</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Bob</column>
+            <column name="c_last_name">Huggins</column>
+            <column name="overall_wins">745</column>
+            <column name="overall_losses">304</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Chris</column>
+            <column name="c_last_name">Holtmann</column>
+            <column name="overall_wins">112</column>
+            <column name="overall_losses">84</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Dana</column>
+            <column name="c_last_name">Altman</column>
+            <column name="overall_wins">593</column>
+            <column name="overall_losses">312</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Gregg</column>
+            <column name="c_last_name">Gord</column>
+            <column name="overall_wins">40</column>
+            <column name="overall_losses">17</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Gregg</column>
+            <column name="c_last_name">Marshall</column>
+            <column name="overall_wins">454</column>
+            <column name="overall_losses">172</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Jay</column>
+            <column name="c_last_name">Wright</column>
+            <column name="overall_wins">507</column>
+            <column name="overall_losses">245</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">John</column>
+            <column name="c_last_name">Beilein</column>
+            <column name="overall_wins">506</column>
+            <column name="overall_losses">309</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">John</column>
+            <column name="c_last_name">Calipari</column>
+            <column name="overall_wins">691</column>
+            <column name="overall_losses">192</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Leonard</column>
+            <column name="c_last_name">Hamilton</column>
+            <column name="overall_wins">503</column>
+            <column name="overall_losses">405</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Mark</column>
+            <column name="c_last_name">Few</column>
+            <column name="overall_wins">498</column>
+            <column name="overall_losses">112</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Matt</column>
+            <column name="c_last_name">Painter</column>
+            <column name="overall_wins">288</column>
+            <column name="overall_losses">146</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Michael</column>
+            <column name="c_last_name">White</column>
+            <column name="overall_wins">146</column>
+            <column name="overall_losses">63</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Mick</column>
+            <column name="c_last_name">Cronin</column>
+            <column name="overall_wins">305</column>
+            <column name="overall_losses">158</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Mike</column>
+            <column name="c_last_name">Brey</column>
+            <column name="overall_wins">480</column>
+            <column name="overall_losses">238</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Mike</column>
+            <column name="c_last_name">Krzyzewski</column>
+            <column name="overall_wins">1070</column>
+            <column name="overall_losses">329</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Randy</column>
+            <column name="c_last_name">Bennett</column>
+            <column name="overall_wins">361</column>
+            <column name="overall_losses">155</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Rick</column>
+            <column name="c_last_name">Pitino</column>
+            <column name="overall_wins">769</column>
+            <column name="overall_losses">270</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Roy</column>
+            <column name="c_last_name">Williams</column>
+            <column name="overall_wins">810</column>
+            <column name="overall_losses">216</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Scott</column>
+            <column name="c_last_name">Drew</column>
+            <column name="overall_wins">297</column>
+            <column name="overall_losses">190</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Sean</column>
+            <column name="c_last_name">Miller</column>
+            <column name="overall_wins">338</column>
+            <column name="overall_losses">112</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Steve</column>
+            <column name="c_last_name">Alford</column>
+            <column name="overall_wins">479</column>
+            <column name="overall_losses">250</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Steve</column>
+            <column name="c_last_name">Prohm</column>
+            <column name="overall_wins">150</column>
+            <column name="overall_losses">51</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Tim</column>
+            <column name="c_last_name">Jankovich</column>
+            <column name="overall_wins">196</column>
+            <column name="overall_losses">125</column>
+        </table>
+        <table name="coaches">
+            <column name="c_first_name">Tony</column>
+            <column name="c_last_name">Bennett</column>
+            <column name="overall_wins">256</column>
+            <column name="overall_losses">115</column>
+        </table>
+    </database>
+</pma_xml_export>

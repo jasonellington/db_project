@@ -47,7 +47,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="home.html">Home</a></li>
+      
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -71,21 +71,8 @@
         <li class="active"><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
         <li><a href="teams.php">Teams</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="coaches.php">Coaches</a></li>
-            <li><a href="players.php">Players</a></li>
-          </ul>
-        </li>
-        <li>
-          <form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Search</button>
-          </form>
-        </li>
+        <li><a href="coaches.php">Coaches</a></li>
+        <li><a href="players.php">Players</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -93,13 +80,14 @@
 
 <div class="container">
   <h2>Conferences Table</h2>
-  <p>This is a table of the conferences of the top 25 teams.</p>            
-  <table class="table">
+  <p>This is a table of the conferences of the top 25 teams.</p>
+  <p>*Click on the table headers to sort by a specific column.</p>                        
+  <table class="table" id="myTable">
     <thead>
       <tr>
-        <th>Conference</th>
-        <th>Number of Teams</th>
-        <th>Power Five?</th>
+        <th onclick="sortTable(0)">Conference</th>
+        <th onclick="sortTable(1)">Number of Teams</th>
+        <th onclick="sortTable(2)">Power Five?</th>
       </tr>
     </thead>
     <tbody>
@@ -115,6 +103,63 @@
   </table>
 </div>
 
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
 
 
 </body>
