@@ -86,7 +86,7 @@
   <h2>Teams Table</h2>
   <p>This is a table of the top 25 teams in NCAA Basketball.</p>
   <p>*Click on the table headers to sort by a specific column.</p>
-  <a href="teams.xml" class="btn btn-primary" role="button">Download XML</a>                          
+  <a href="teams.xml" class="btn btn-primary" role="button" download>Download XML</a>                          
 
               
   <table class="table" id="myTable">

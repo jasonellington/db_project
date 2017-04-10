@@ -29,7 +29,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  
+
   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 </head>
@@ -85,7 +85,7 @@
   <h2>Coaches Table</h2>
   <p>This is a table of the coaches of the top 25 teams.</p>
   <p>*Click on the table headers to sort by a specific column.</p>                              
-  <a href="coaches.xml" class="btn btn-primary" role="button">Download XML</a>                          
+  <a href="coaches.xml" class="btn btn-primary" role="button" download>Download XML</a>                          
   <table class="table" id="myTable">
     <thead>
       <tr>
