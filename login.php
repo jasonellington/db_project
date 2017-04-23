@@ -18,7 +18,7 @@ if ($_POST['Login']){
 // fclose($fh);
 $userN = $_POST['username'];
 $passW = $_POST['password'];
-$userlist = file ('/Applications/XAMPP/xamppfiles/htdocs/cs4750/db_project/data/register.txt');
+$userlist = file ('data/register.txt');
 
 $success = false;
 foreach ($userlist as $user) {
