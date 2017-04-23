@@ -1,9 +1,25 @@
+<?php
+session_start();
+?>
+
+<?php if(!isset($_SESSION['user'])) { ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php echo "You are not logged in or do not have access to this page." 
+?>
+</body>
+</html>
+
+<?php } else { ?>
 
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-	<title>T25 - Add Player</title>
+	<title>T25 - Search Player</title>
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -47,7 +63,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        
+        <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -71,13 +87,9 @@
         <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
         <li><a href="teams.php">Teams</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="coaches.php">Coaches</a></li>
-            <li class="active"><a href="players.php">Players</a></li>
-          </ul>
-        </li>
+        <li><a href="coaches.php">Coaches</a></li>
+        <li class="active"><a href="players.php">Players</a></li>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -111,4 +123,6 @@
 </body>
 </html>
 </html>
+
+<?php } ?>
 

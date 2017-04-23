@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Login</title>
+  <title>Register</title>
  </head>
  <body>
 
@@ -9,12 +9,16 @@
 //If Submit Button Is Clicked Do the Following
 if ($_POST['Register']){
 
-$myFile = "/Applications/XAMPP/xamppfiles/htdocs/cs4750/db_project/data/register.txt";
+$myFile = "data/register.txt";
 $fh = fopen($myFile, 'a') or die("can't open file");
-$stringData = $_POST['username'] . ":";
+$stringData = $_POST['username'] . ",";
 fwrite($fh, $stringData);
-$stringData = $_POST['password'] . "\n";
+$stringData = $_POST['password'] . ",";
 fwrite($fh, $stringData);
+$stringData = $_POST['status'] . ",";
+fwrite($fh, $stringData);
+$null = "null\n";
+fwrite($fh, $null);
 fclose($fh);
 
 } ?>

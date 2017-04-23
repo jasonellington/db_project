@@ -2,29 +2,7 @@
 session_start();
 ?>
 
-<?php
- require_once('./library.php');
- $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
- // Check connection
- if (mysqli_connect_errno()) {
- echo("Can't connect to MySQL Server. Error code: " .
- mysqli_connect_error());
- return null;
- }
- // Form the SQL query (a SELECT query)
- $sql="SELECT * FROM conferences ORDER BY conference_title";
- $result = mysqli_query($con,$sql);
- // Print the data from the table row by row
- 
- // echo $row['c_first_name'];
- // echo " " . $row['c_last_name'];
- // echo " " . $row['overall_wins'];
- // echo " " . $row['overall_losses'];
- // echo "<br>";
- 
-?>
-
-<?php if(!isset($_SESSION['user'])) { ?>
+<?php if(!($_SESSION["status"] == "ad")) { ?>
 
 <!DOCTYPE html>
 <html>
@@ -39,16 +17,12 @@ session_start();
 
 <html lang="en">
 <head>
-  <title>T25 -  Conferences</title>
+  <title>T25 - Add Team</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 </head>
 <body>
 
@@ -89,9 +63,9 @@ session_start();
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="conferences.php">Conferences</a></li>
+        <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
-        <li><a href="teams.php">Teams</a></li>
+        <li class="active"><a href="teams.php">Teams</a></li>
         <li><a href="coaches.php">Coaches</a></li>
         <li><a href="players.php">Players</a></li>
         <li><a href="logout.php">Logout</a></li>
@@ -101,40 +75,49 @@ session_start();
 </nav>
 
 <div class="container">
-  <h2>Conferences Table</h2>
-  <p>This is a table of the conferences of the top 25 teams.</p>
-  <p>*Click on the table headers to sort by a specific column.</p>
- <a href="conferences.xml" class="btn btn-primary" role="button" download>Download XML</a>
-
-  <table class="table" id="myTable">
-    <thead>
-      <tr>
-        <th>Conference</th>
-        <th>Number of Teams</th>
-        <th>Power Five?</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php while($row = mysqli_fetch_array($result)) { ?>
-      <tr>
-        <td><?php echo $row['conference_title']?></td>
-        <td><?php echo " " . $row['num_teams'];?></td>
-        <td><?php echo " " . $row['power_five'];?></td>
-
-      </tr>
-    <?php } ?>
-    </tbody>
-  </table>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="teams.php">Teams</a></li>
+  <li class="breadcrumb-item active">Add Team</li>
+</ol>
 </div>
 
-<script>
-  $(function(){
-  $('#myTable').tablesorter(); 
-  });
-</script>
+<div class="container">
+  <h2>Add a Team to the Teams Table</h2>
+  <BR>
+
+    <form action="add_team.php" method="post">
+    School: <input type="text" name="school">
+    Mascot: <input type="text" name="mascot">
+    Wins: <input type="number" name="wins">
+    Losses: <input type="number" name="losses">
+    Rank: <input type="number" name="rank">
+    <input type="Submit">
+    </form> 
+
+<!--   <form action="add_player.php" method="post">
+  <div class="form-group">
+    <label for="p_first_name">First Name</label>
+    <input type="text" class="form-control" id="p_first_name" name="p_first_name" placeholder="Johnny">
+  </div>
+  <div class="form-group">
+    <label for="p_last_name">Last Name</label>
+    <input type="text" class="form-control" id="p_last_name" name="p_last_name" placeholder="Appleseed">
+  </div>
+  <div class="form-group">
+    <label for="year">Year</label>
+    <input type="text" class="form-control" id="year" name="year" placeholder="1">
+  </div>
+  <div class="form-group">
+    <label for="ppg">PPG</label>
+    <input type="text" class="form-control" id="ppg" name="ppg" placeholder="20">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+
+</div>
+
 
 
 </body>
 </html>
-
 <?php } ?>

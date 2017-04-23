@@ -7,9 +7,9 @@
  echo "Failed to connect to MySQL: " . mysqli_connect_error();
  }
  // Form the SQL query (an INSERT query)
- $sql="INSERT INTO players (p_first_name, p_last_name, year, ppg)
+ $sql="INSERT INTO teams (school, mascot, wins, losses, rank)
  VALUES
- ('$_POST[p_first_name]','$_POST[p_last_name]','$_POST[year]','$_POST[ppg]')";
+ ('$_POST[school]','$_POST[mascot]','$_POST[wins]','$_POST[losses]','$_POST[rank]')";
 
  if (!mysqli_query($con,$sql))
  {

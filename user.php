@@ -2,28 +2,6 @@
 session_start();
 ?>
 
-<?php
- require_once('./library.php');
- $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
- // Check connection
- if (mysqli_connect_errno()) {
- echo("Can't connect to MySQL Server. Error code: " .
- mysqli_connect_error());
- return null;
- }
- // Form the SQL query (a SELECT query)
- $sql="SELECT * FROM conferences ORDER BY conference_title";
- $result = mysqli_query($con,$sql);
- // Print the data from the table row by row
- 
- // echo $row['c_first_name'];
- // echo " " . $row['c_last_name'];
- // echo " " . $row['overall_wins'];
- // echo " " . $row['overall_losses'];
- // echo "<br>";
- 
-?>
-
 <?php if(!isset($_SESSION['user'])) { ?>
 
 <!DOCTYPE html>
@@ -39,7 +17,7 @@ session_start();
 
 <html lang="en">
 <head>
-  <title>T25 -  Conferences</title>
+  <title>T25 -  User</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -68,7 +46,7 @@ session_start();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
+        <li class="active"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -89,7 +67,7 @@ session_start();
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="conferences.php">Conferences</a></li>
+        <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
         <li><a href="teams.php">Teams</a></li>
         <li><a href="coaches.php">Coaches</a></li>
@@ -101,38 +79,11 @@ session_start();
 </nav>
 
 <div class="container">
-  <h2>Conferences Table</h2>
-  <p>This is a table of the conferences of the top 25 teams.</p>
-  <p>*Click on the table headers to sort by a specific column.</p>
- <a href="conferences.xml" class="btn btn-primary" role="button" download>Download XML</a>
-
-  <table class="table" id="myTable">
-    <thead>
-      <tr>
-        <th>Conference</th>
-        <th>Number of Teams</th>
-        <th>Power Five?</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php while($row = mysqli_fetch_array($result)) { ?>
-      <tr>
-        <td><?php echo $row['conference_title']?></td>
-        <td><?php echo " " . $row['num_teams'];?></td>
-        <td><?php echo " " . $row['power_five'];?></td>
-
-      </tr>
-    <?php } ?>
-    </tbody>
-  </table>
-</div>
-
-<script>
-  $(function(){
-  $('#myTable').tablesorter(); 
-  });
-</script>
-
+  <h2>User Information</h2>
+  <p>
+  <?php echo "User: " . $_SESSION["user"] . "<br>"; ?>
+  <?php echo "Status: " . $_SESSION["status"] . "<br>"; ?>
+  </p>
 
 </body>
 </html>

@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
  require_once('./library.php');
  $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
  // Check connection
@@ -19,6 +23,20 @@
  // echo "<br>";
  
 ?>
+
+
+<?php if(!isset($_SESSION['user'])) { ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php echo "You are not logged in or do not have access to this page." 
+?>
+</body>
+</html>
+
+<?php } else { ?>
 
 <html lang="en">
 <head>
@@ -50,6 +68,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
         
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -76,6 +95,7 @@
         <li><a href="teams.php">Teams</a></li>
         <li><a href="coaches.php">Coaches</a></li>
         <li class="active"><a href="players.php">Players</a></li>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -85,9 +105,14 @@
   <h2>Players Table</h2>
   <p>This is a table of the starting players on top 25 teams.</p>
   <p>*Click on the table headers to sort by a specific column.</p>                              
-  <a href="players.xml" class="btn btn-primary" role="button" download>Download XML</a>                          
-  <a href="addPlayer.html" class="btn btn-success" role="button">Add Player</a>
-  <a href="searchPlayer.html" class="btn btn-success" role="button">Search Player</a>            
+  <a href="players.xml" class="btn btn-primary" role="button" download>Download XML</a>  
+
+  <?php if($_SESSION["status"] == "ad" || $_SESSION["status"] == "player" || $_SESSION["status"] == "coach" ) { ?>
+
+  <a href="addPlayer.php" class="btn btn-success" role="button">Add Player</a>
+  <?php
+  }?>           
+  <a href="searchPlayer.php" class="btn btn-success" role="button">Search Player</a>            
   <table class="table" id="myTable">
     <thead>
       <tr>
@@ -95,6 +120,7 @@
         <th>Lastname</th>
         <th>Year</th>
         <th>PPG</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -104,12 +130,15 @@
         <td><?php echo " " . $row['p_last_name'];?></td>
         <td><?php echo " " . $row['year'];?></td>
         <td><?php echo " " . $row['ppg'];?></td>
+        <td><button type="submit" class="btn btn-danger btn-xs login-button" name="Delete" value="Delete">Delete</button></td>
+        <td>
       </tr>
     <?php } ?>
     </tbody>
   </table>
 </div>
 
+<!-- DELETE FROM `cs4750s17jte4hm`.`players` WHERE `players`.`p_first_name` = \'Jason\' AND `players`.`p_last_name` = \'Ellington\' -->
 
 <script>
   $(function(){
@@ -120,3 +149,5 @@
 
 </body>
 </html>
+
+<?php } ?>

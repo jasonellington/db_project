@@ -1,6 +1,23 @@
+<?php
+session_start();
+?>
+
+<?php if(!($_SESSION["status"] == "ad")) { ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php echo "You are not logged in or do not have access to this page." 
+?>
+</body>
+</html>
+
+<?php } else { ?>
+
 <html lang="en">
 <head>
-  <title>T25 - Add Player</title>
+  <title>T25 - Add Coach</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,7 +42,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        
+        <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -49,13 +66,9 @@
         <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
         <li><a href="teams.php">Teams</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stats<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="coaches.php">Coaches</a></li>
-            <li class="active"><a href="players.php">Players</a></li>
-          </ul>
-        </li>
+        <li class="active"><a href="coaches.php">Coaches</a></li>
+        <li><a href="players.php">Players</a></li>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -63,20 +76,20 @@
 
 <div class="container">
 <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="players.php">Players</a></li>
-  <li class="breadcrumb-item active">Add Player</li>
+  <li class="breadcrumb-item"><a href="coaches.php">Coaches</a></li>
+  <li class="breadcrumb-item active">Add Coach</li>
 </ol>
 </div>
 
 <div class="container">
-  <h2>Add a Player to the Player's Table</h2>
+  <h2>Add a Coach to the Coaches Table</h2>
   <BR>
 
-    <form action="add_player.php" method="post">
-    First Name: <input type="text" name="p_first_name">
-    Last Name: <input type="text" name="p_last_name">
-    year: <input type="number" name="year">
-    ppg: <input type="number" name="ppg">
+    <form action="add_coach.php" method="post">
+    First Name: <input type="text" name="c_first_name">
+    Last Name: <input type="text" name="c_last_name">
+    Overall Wins: <input type="number" name="overall_wins">
+    Overall Losses: <input type="number" name="overall_losses">
     <input type="Submit">
     </form> 
 
@@ -106,3 +119,4 @@
 
 </body>
 </html>
+<?php } ?>

@@ -1,1 +1,6 @@
-Jason:password
+athleticdirector,athleticdirector,ad,null
+jason,password,fan,null
+tony,bennett,coach,null
+london,london,player,null
+test,test,fan,null
+test,test,fan,null

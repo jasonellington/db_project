@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
  require_once('./library.php');
  $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
  // Check connection
@@ -19,6 +23,19 @@
  // echo "<br>";
  
 ?>
+
+<?php if(!isset($_SESSION['user'])) { ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php echo "You are not logged in or do not have access to this page." 
+?>
+</body>
+</html>
+
+<?php } else { ?>
 
 <html lang="en">
 <head>
@@ -51,6 +68,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
+
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -76,6 +95,8 @@
         <li><a href="teams.php">Teams</a></li>
         <li class="active"><a href="coaches.php">Coaches</a></li>
         <li><a href="players.php">Players</a></li>
+        <li><a href="logout.php">Logout</a></li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -85,7 +106,13 @@
   <h2>Coaches Table</h2>
   <p>This is a table of the coaches of the top 25 teams.</p>
   <p>*Click on the table headers to sort by a specific column.</p>                              
-  <a href="coaches.xml" class="btn btn-primary" role="button" download>Download XML</a>                          
+  <a href="coaches.xml" class="btn btn-primary" role="button" download>Download XML</a>
+  <?php if($_SESSION["status"] == "ad") { ?>
+
+  <a href="addCoach.php" class="btn btn-success" role="button">Add Coach</a>
+  <?php
+  }?>   
+  <a href="searchCoach.php" class="btn btn-success" role="button">Search Coach</a>                                      
   <table class="table" id="myTable">
     <thead>
       <tr>
@@ -118,3 +145,4 @@
 
 </body>
 </html>
+<?php } ?>
