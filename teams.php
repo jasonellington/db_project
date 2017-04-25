@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
- require_once('./library.php');
+ require_once('./library_user.php');
  $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
  // Check connection
  if (mysqli_connect_errno()) {
@@ -106,9 +106,13 @@ session_start();
   <p>This is a table of the top 25 teams in NCAA Basketball.</p>
   <p>*Click on the table headers to sort by a specific column.</p>
   <a href="teams.xml" class="btn btn-primary" role="button" download>Download XML</a>
+  <a href="plays_against.php" class="btn btn-default" role="button">Plays Against</a>
+  <a href="starting_five.php" class="btn btn-default" role="button">Starting Five</a>
   <?php if($_SESSION["status"] == "ad") { ?>
 
   <a href="addTeam.php" class="btn btn-success" role="button">Add Team</a>
+  <a href="deleteTeam.php" class="btn btn-danger" role="button">Delete Team</a>
+
   <?php
   }?> 
 

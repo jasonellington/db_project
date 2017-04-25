@@ -2,29 +2,7 @@
 session_start();
 ?>
 
-<?php
- require_once('./library_user.php');
- $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
- // Check connection
- if (mysqli_connect_errno()) {
- echo("Can't connect to MySQL Server. Error code: " .
- mysqli_connect_error());
- return null;
- }
- // Form the SQL query (a SELECT query)
- $sql="SELECT * FROM coaches ORDER BY c_last_name";
- $result = mysqli_query($con,$sql);
- // Print the data from the table row by row
- 
- // echo $row['c_first_name'];
- // echo " " . $row['c_last_name'];
- // echo " " . $row['overall_wins'];
- // echo " " . $row['overall_losses'];
- // echo "<br>";
- 
-?>
-
-<?php if(!isset($_SESSION['user'])) { ?>
+<?php if(!($_SESSION["status"] == "ad")) { ?>
 
 <!DOCTYPE html>
 <html>
@@ -39,16 +17,28 @@ session_start();
 
 <html lang="en">
 <head>
-  <title>T25 -  Coaches</title>
+  <title>T25 - Delete Team</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+  <script>
+  	$(document).ready(function() {
+  		$( "#LastNinput" ).change(function() {
+  		
+  			$.ajax({
+  				url: 'SearchPlayerName.php', 
+  				data: {searchPlayer: $( "#LastNinput" ).val()},
+  				success: function(data){
+  					$('#LastNresult').html(data);	
+  				
+    				}
+    			});
+    		});
+    		
+    	});
+	</script>
 </head>
 <body>
 
@@ -69,7 +59,6 @@ session_start();
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
-
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -96,53 +85,66 @@ session_start();
         <li class="active"><a href="coaches.php">Coaches</a></li>
         <li><a href="players.php">Players</a></li>
         <li><a href="logout.php">Logout</a></li>
-
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container">
-  <h2>Coaches Table</h2>
-  <p>This is a table of the coaches of the top 25 teams.</p>
-  <p>*Click on the table headers to sort by a specific column.</p>                              
-  <a href="coaches.xml" class="btn btn-primary" role="button" download>Download XML</a>
-  <?php if($_SESSION["status"] == "ad") { ?>
-
-  <a href="addCoach.php" class="btn btn-success" role="button">Add Coach</a>
-  <a href="deleteCoach.php" class="btn btn-danger" role="button">Delete Coach</a>
-
-  <?php
-  }?>   
-  <a href="searchCoach.php" class="btn btn-success" role="button">Search Coach</a>                                      
-  <table class="table" id="myTable">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Overall Wins</th>
-        <th>Overall Losses</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php while($row = mysqli_fetch_array($result)) { ?>
-      <tr>
-        <td><?php echo $row['c_first_name']?></td>
-        <td><?php echo " " . $row['c_last_name'];?></td>
-        <td><?php echo " " . $row['overall_wins'];?></td>
-        <td><?php echo " " . $row['overall_losses'];?></td>
-      </tr>
-    <?php } ?>
-    </tbody>
-  </table>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="teams.php">Teams</a></li>
+  <li class="breadcrumb-item active">Delete Team</li>
+</ol>
 </div>
 
+<div class="container">
+  <h2>Delete a Team to the Team's Table</h2>
+  <BR>
 
-<script>
-  $(function(){
-  $('#myTable').tablesorter(); 
-  });
-</script>
+    <form action="delete_team.php" method="post">
+    School: <input type="text" name="school">
+    Mascot: <input type="text" name="mascot">
+    <input type="Submit">
+    </form> 
+
+<!--   <form action="add_player.php" method="post">
+  <div class="form-group">
+    <label for="p_first_name">First Name</label>
+    <input type="text" class="form-control" id="p_first_name" name="p_first_name" placeholder="Johnny">
+  </div>
+  <div class="form-group">
+    <label for="p_last_name">Last Name</label>
+    <input type="text" class="form-control" id="p_last_name" name="p_last_name" placeholder="Appleseed">
+  </div>
+  <div class="form-group">
+    <label for="year">Year</label>
+    <input type="text" class="form-control" id="year" name="year" placeholder="1">
+  </div>
+  <div class="form-group">
+    <label for="ppg">PPG</label>
+    <input type="text" class="form-control" id="ppg" name="ppg" placeholder="20">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+
+</div>
+
+<div class="container">
+  <h3>Search name of team to delete</h3>	
+
+  <div class="input-group">
+    <input class="form-control" id="LastNinput" type="search" size="30" placeholder="Team Name Contains"/>
+  </div>
+  
+
+</div>
+
+<div class="container">
+
+  <div id="LastNresult"></div>
+
+</div>
+
 
 
 </body>

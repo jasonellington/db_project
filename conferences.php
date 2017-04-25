@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
- require_once('./library.php');
+ require_once('./library_user.php');
  $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
  // Check connection
  if (mysqli_connect_errno()) {

@@ -2,7 +2,7 @@
 session_start();
 ?>
 
-<?php if(!($_SESSION["status"] == "ad" || $_SESSION["status"] == "coach" || $_SESSION["status"] == "player")) { ?>
+<?php if(!isset($_SESSION['user'])) { ?>
 
 <!DOCTYPE html>
 <html>
@@ -15,15 +15,36 @@ session_start();
 
 <?php } else { ?>
 
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <title>T25 - Add Player</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>T25 - Starting Five</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+	<script>
+  	$(document).ready(function() {
+  		$( "#LastNinput" ).change(function() {
+  		
+  			$.ajax({
+  				url: 'CallStartingFive.php', 
+  				data: {starting_five: $( "#LastNinput" ).val()},
+  				success: function(data){
+  					$('#LastNresult').html(data);	
+  				  // $_SESSION['starting_five'] = $_POST['starting_five']; 
+    				}
+    			});
+    		});
+    		
+    	});
+	</script>
 </head>
+
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -65,9 +86,9 @@ session_start();
       <ul class="nav navbar-nav navbar-right">
         <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
-        <li><a href="teams.php">Teams</a></li>
+        <li class="active"><a href="teams.php">Teams</a></li>
         <li><a href="coaches.php">Coaches</a></li>
-        <li class="active"><a href="players.php">Players</a></li>
+        <li><a href="players.php">Players</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -76,42 +97,24 @@ session_start();
 
 <div class="container">
 <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="players.php">Players</a></li>
-  <li class="breadcrumb-item active">Add Player</li>
+  <li class="breadcrumb-item"><a href="teams.php">Teams</a></li>
+  <li class="breadcrumb-item active">Starting Five</li>
 </ol>
 </div>
 
 <div class="container">
-  <h2>Add a Player to the Player's Table</h2>
-  <BR>
+  <h3>Search for Starting Five of a School</h3>	
 
-    <form action="add_player.php" method="post">
-    First Name: <input type="text" name="p_first_name">
-    Last Name: <input type="text" name="p_last_name">
-    year: <input type="number" name="year">
-    ppg: <input type="number" name="ppg">
-    <input type="Submit">
-    </form> 
+  <div class="input-group">
+    <input class="form-control" id="LastNinput" type="search" size="30" placeholder="Team Name Contains"/>
+  </div>
+  
 
-<!--   <form action="add_player.php" method="post">
-  <div class="form-group">
-    <label for="p_first_name">First Name</label>
-    <input type="text" class="form-control" id="p_first_name" name="p_first_name" placeholder="Johnny">
-  </div>
-  <div class="form-group">
-    <label for="p_last_name">Last Name</label>
-    <input type="text" class="form-control" id="p_last_name" name="p_last_name" placeholder="Appleseed">
-  </div>
-  <div class="form-group">
-    <label for="year">Year</label>
-    <input type="text" class="form-control" id="year" name="year" placeholder="1">
-  </div>
-  <div class="form-group">
-    <label for="ppg">PPG</label>
-    <input type="text" class="form-control" id="ppg" name="ppg" placeholder="20">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
+</div>
+
+<div class="container">
+
+  <div id="LastNresult"></div>
 
 </div>
 
@@ -119,4 +122,7 @@ session_start();
 
 </body>
 </html>
+</html>
+
 <?php } ?>
+

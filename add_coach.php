@@ -16,6 +16,8 @@
  die('Error: ' . mysqli_error($con));
  }
  echo "1 record added"; // Output to user
+ ?> <script>location.href='coaches.php';</script> <?php
+
  mysqli_close($con);
 ?> 
 

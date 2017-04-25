@@ -1,5 +1,5 @@
 <?php
-	require "dbutil.php";
+	require "dbutil_user.php";
 	$db = DbUtil::loginConnection();
 	
 	$stmt = $db->stmt_init();

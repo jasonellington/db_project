@@ -12,7 +12,7 @@ session_start();
  return null;
  }
  // Form the SQL query (a SELECT query)
- $sql="SELECT * FROM coaches ORDER BY c_last_name";
+ $sql="SELECT * FROM plays_against ORDER BY home_team";
  $result = mysqli_query($con,$sql);
  // Print the data from the table row by row
  
@@ -39,14 +39,12 @@ session_start();
 
 <html lang="en">
 <head>
-  <title>T25 -  Coaches</title>
+  <title>T25 -  Teams</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 </head>
@@ -69,7 +67,7 @@ session_start();
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="#"><a href="user.php"><?php echo "User: " . $_SESSION["user"] . "<br>"; ?></a></li>
-
+       
         <!-- li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -90,10 +88,11 @@ session_start();
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
+        
         <li><a href="conferences.php">Conferences</a></li>
         <li><a href="gyms.php">Gyms</a></li>
-        <li><a href="teams.php">Teams</a></li>
-        <li class="active"><a href="coaches.php">Coaches</a></li>
+        <li class="active"><a href="teams.php">Teams</a></li>
+        <li><a href="coaches.php">Coaches</a></li>
         <li><a href="players.php">Players</a></li>
         <li><a href="logout.php">Logout</a></li>
 
@@ -103,47 +102,47 @@ session_start();
 </nav>
 
 <div class="container">
-  <h2>Coaches Table</h2>
-  <p>This is a table of the coaches of the top 25 teams.</p>
-  <p>*Click on the table headers to sort by a specific column.</p>                              
-  <a href="coaches.xml" class="btn btn-primary" role="button" download>Download XML</a>
-  <?php if($_SESSION["status"] == "ad") { ?>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="teams.php">Teams</a></li>
+      <li class="breadcrumb-item active">Plays Against</li>
+    </ol>
+  </div>   
+  
+<div class="container">
+  <h2>Plays Against Table</h2>
+  <p>This is a table of all matches between Top 25 Teams.</p>
+  <p>*Click on the table headers to sort by a specific column.</p>                                   
 
-  <a href="addCoach.php" class="btn btn-success" role="button">Add Coach</a>
-  <a href="deleteCoach.php" class="btn btn-danger" role="button">Delete Coach</a>
-
-  <?php
-  }?>   
-  <a href="searchCoach.php" class="btn btn-success" role="button">Search Coach</a>                                      
+              
   <table class="table" id="myTable">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Overall Wins</th>
-        <th>Overall Losses</th>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Date</th>
+        <th>Home Score</th>
+        <th>Away Score</th>
       </tr>
     </thead>
     <tbody>
     <?php while($row = mysqli_fetch_array($result)) { ?>
       <tr>
-        <td><?php echo $row['c_first_name']?></td>
-        <td><?php echo " " . $row['c_last_name'];?></td>
-        <td><?php echo " " . $row['overall_wins'];?></td>
-        <td><?php echo " " . $row['overall_losses'];?></td>
+        <td><?php echo $row['home_team']?></td>
+        <td><?php echo " " . $row['visiting_team'];?></td>
+        <td><?php echo " " . $row['date'];?></td>
+        <td><?php echo " " . $row['home_score'];?></td>
+        <td><?php echo " " . $row['visiting_score'];?></td>
       </tr>
     <?php } ?>
     </tbody>
   </table>
 </div>
 
-
 <script>
   $(function(){
   $('#myTable').tablesorter(); 
   });
 </script>
-
 
 </body>
 </html>

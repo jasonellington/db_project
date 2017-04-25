@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
- require_once('./library.php');
+ require_once('./library_user.php');
  $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
  // Check connection
  if (mysqli_connect_errno()) {
@@ -110,6 +110,8 @@ session_start();
   <?php if($_SESSION["status"] == "ad" || $_SESSION["status"] == "player" || $_SESSION["status"] == "coach" ) { ?>
 
   <a href="addPlayer.php" class="btn btn-success" role="button">Add Player</a>
+  <a href="deletePlayer.php" class="btn btn-danger" role="button">Delete Player</a>
+
   <?php
   }?>           
   <a href="searchPlayer.php" class="btn btn-success" role="button">Search Player</a>            
@@ -120,7 +122,6 @@ session_start();
         <th>Lastname</th>
         <th>Year</th>
         <th>PPG</th>
-        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -130,10 +131,9 @@ session_start();
         <td><?php echo " " . $row['p_last_name'];?></td>
         <td><?php echo " " . $row['year'];?></td>
         <td><?php echo " " . $row['ppg'];?></td>
-        <td><button type="submit" class="btn btn-danger btn-xs login-button" name="Delete" value="Delete">Delete</button></td>
-        <td>
       </tr>
-    <?php } ?>
+<?php } ?>
+
     </tbody>
   </table>
 </div>
