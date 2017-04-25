@@ -24,7 +24,7 @@ session_start();
  
 ?>
 
-<?php if(!isset($_SESSION['user'])) { ?>
+<?php if(!($_SESSION["status"] == "ad")) { ?>
 
 <!DOCTYPE html>
 <html>
@@ -107,6 +107,41 @@ session_start();
       <li class="breadcrumb-item active">Plays Against</li>
     </ol>
   </div>   
+
+  <div class="container">
+  <h2>Add a Game to Plays Against Table</h2>
+  <BR>
+
+    <form action="add_game.php" method="post">
+    Home Team: <input type="text" name="home_team">
+    Away Team: <input type="text" name="visting_team">
+    Date: <input type="text" name="date">
+    Home Score: <input type="number" name="home_score">
+    Away Score: <input type="number" name="visting_score">
+    <input type="Submit">
+    </form> 
+
+<!--   <form action="add_player.php" method="post">
+  <div class="form-group">
+    <label for="p_first_name">First Name</label>
+    <input type="text" class="form-control" id="p_first_name" name="p_first_name" placeholder="Johnny">
+  </div>
+  <div class="form-group">
+    <label for="p_last_name">Last Name</label>
+    <input type="text" class="form-control" id="p_last_name" name="p_last_name" placeholder="Appleseed">
+  </div>
+  <div class="form-group">
+    <label for="year">Year</label>
+    <input type="text" class="form-control" id="year" name="year" placeholder="1">
+  </div>
+  <div class="form-group">
+    <label for="ppg">PPG</label>
+    <input type="text" class="form-control" id="ppg" name="ppg" placeholder="20">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+
+</div>
   
 <div class="container">
   <h2>Plays Against Table</h2>
