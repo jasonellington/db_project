@@ -24,7 +24,7 @@ session_start();
  
 ?>
 
-<?php if(!($_SESSION["status"] == "ad")) { ?>
+<?php if(!isset($_SESSION['user'])) { ?>
 
 <!DOCTYPE html>
 <html>
@@ -106,7 +106,9 @@ session_start();
       <li class="breadcrumb-item"><a href="teams.php">Teams</a></li>
       <li class="breadcrumb-item active">Plays Against</li>
     </ol>
-  </div>   
+  </div>
+
+<?php if(($_SESSION["status"] == "ad")) { ?>
 
   <div class="container">
   <h2>Add a Game to Plays Against Table</h2>
@@ -114,12 +116,14 @@ session_start();
 
     <form action="add_game.php" method="post">
     Home Team: <input type="text" name="home_team">
-    Away Team: <input type="text" name="visting_team">
+    Away Team: <input type="text" name="visiting_team">
     Date: <input type="text" name="date">
     Home Score: <input type="number" name="home_score">
-    Away Score: <input type="number" name="visting_score">
+    Away Score: <input type="number" name="visiting_score">
     <input type="Submit">
     </form> 
+
+<?php } ?>
 
 <!--   <form action="add_player.php" method="post">
   <div class="form-group">
